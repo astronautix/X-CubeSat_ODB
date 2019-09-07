@@ -1,0 +1,33 @@
+tags
+*.old
+*.orig
+# local CoIDE files
+*.cogui
+*.comarker
+# local code::blocks files
+*.elay
+*.elay.ebTemp
+*.layout
+*.depend
+# vi backup files
+*.swp
+*.bak
+# object files
+*.a
+*.d
+*.o
+*.bin
+*.elf
+*.hex
+*.map
+# gcc diagnostics
+*.su
+# doc
+doc/html
+doc/latex
+*.doc
+*.xls
+*.ppt
+*.docx
+*.xlsx
+*.pptx
