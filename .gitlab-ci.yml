@@ -13,7 +13,7 @@ doc:
   before_script:
     # Actions to perform before the test
     - apt-get -q update
-    - apt-get -qy install doxygen ttf-freefont graphviz
+    - apt-get -qy install doxygen graphviz
   script:
     - doxygen sat/rules/Doxyfile
     - mv sat/doc/html/ public/
