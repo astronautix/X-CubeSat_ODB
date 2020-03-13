@@ -13,9 +13,9 @@ doc:
   before_script:
     # Actions to perform before the test
     - apt-get -q update
-    - apt-get -qy install doxygen
+    - apt-get -qy install doxygen ttf-freefont graphviz
   script:
-    - make doc
+    - doxygen sat/rules/Doxyfile
     - mv sat/doc/html/ public/
     - echo "API documentation should be accessible soon"
   artifacts:
