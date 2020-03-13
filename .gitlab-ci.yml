@@ -17,7 +17,8 @@ doc:
   script:
     - cd sat
     - doxygen rules/Doxyfile
-    - mv doc/html/ public/
+    - cd ..
+    - mv sat/doc/html/ public/
     - echo "API documentation should be accessible soon"
   artifacts:
     paths:
