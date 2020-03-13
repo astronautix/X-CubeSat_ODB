@@ -2,8 +2,27 @@ variables:
     GITLAB_CI_IMAGE_DEBIAN: 'debian:buster'
 stages:
   # The piplines to run in CI
+  - doc
   - test
   - build 
+  
+doc:
+  # generate the documentation
+  image: ${GITLAB_CI_IMAGE_DEBIAN}
+  stage: doc
+  before_script:
+    # Actions to perform before the test
+    - apt-get -q update
+    - apt-get install doxygen
+  script:
+    - make doc
+    - mv sat/doc/html/ public/
+    - echo "API documentation should be accessible soon"
+  artifacts:
+    paths:
+      - public
+  
+  
 test:
   # The test stage.
   image: ${GITLAB_CI_IMAGE_DEBIAN}
