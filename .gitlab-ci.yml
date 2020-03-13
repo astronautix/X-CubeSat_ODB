@@ -13,7 +13,7 @@ doc:
   before_script:
     # Actions to perform before the test
     - apt-get -q update
-    - apt-get install doxygen
+    - apt-get -qy install doxygen
   script:
     - make doc
     - mv sat/doc/html/ public/
