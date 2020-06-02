@@ -19,8 +19,8 @@ Je reste sur des généralités, et vous propose de voir les points techniques a
 
 Globalement le système se comporte comme une simple machine à états:
 
-  . a tout instant, le satellite est dans un mode (= état) donné;  on a donc une liste de modes: démarrage (INIT), économie d'énergie (POWER), nominal (WODEX), etc... (les modes sont déclarés dans sat/ODB/Config.h),
-  . pour chaque mode, on a un ou plusieurs thread(s) actif(s);  un changement de mode (= transition) peut donc entraîner la suspension de certains threads, et la reprise de certains autres.
+* a tout instant, le satellite est dans un mode (= état) donné;  on a donc une liste de modes: démarrage (INIT), économie d'énergie (POWER), nominal (WODEX), etc... (les modes sont déclarés dans sat/ODB/Config.h),
+* pour chaque mode, on a un ou plusieurs thread(s) actif(s);  un changement de mode (= transition) peut donc entraîner la suspension de certains threads, et la reprise de certains autres.
 
 ControlThread est un cas particulier: il est toujours actif. Son rôle est de recevoir tous les évènements asynchrones du système (commandes reçues du sol, alerte sur les niveau de charge des batteries, etc...), et de décider de déclancher ou non un changement de mode en fonction de chaque évènement reçu.
 
@@ -30,9 +30,9 @@ ControlThread est un cas particulier: il est toujours actif. Son rôle est de re
 
 FreeRTOS apporte trois choses importantes:
 
-  . un scheduler (ordonnanceur) préemptif avec une gestion des priorités (nos "threads" sont simplement des tâches FreeRTOS avec un peu d'objet autour)
-  . un mécanisme de synchronisation et de communication entre les tâches (les sémaphores sont une interface idéale entre le soft et les interruptions hardware)
-  . plusieurs stratégies d'allocation de mémoire (allocation dynamique ou non, implémentations rudimentaires de malloc(), sbrk(), etc...)
+* un scheduler (ordonnanceur) préemptif avec une gestion des priorités (nos "threads" sont simplement des tâches FreeRTOS avec un peu d'objet autour)
+* un mécanisme de synchronisation et de communication entre les tâches (les sémaphores sont une interface idéale entre le soft et les interruptions hardware)
+* plusieurs stratégies d'allocation de mémoire (allocation dynamique ou non, implémentations rudimentaires de malloc(), sbrk(), etc...)
 
 Il est très bien documenté, et simple à prendre en main.
 
