@@ -1,9 +1,0 @@
-
-Pour builder le soft:
-
-  make DEBUG=1
-
-Pour flasher la carte ADCS:
-
-  st-flash write ./sat/ADCS/ADCS.bin 0x08000000
-
